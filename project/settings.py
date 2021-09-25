@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     "corsheaders",
     # local
     "accounts",
+    # 'nested_inline',
     "partyistic",
 ]
 
