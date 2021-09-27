@@ -30,5 +30,5 @@ urlpatterns = [
     path("trips/<int:pk>/", TripsDetail.as_view(), name="trips_detail"),
 
     path("parties/", PartiesList.as_view(), name="parties_list"),
-    path("arties/<int:pk>/", PartiesDetail.as_view(), name="parties_detail"),
+    path("parties/<int:pk>/", PartiesDetail.as_view(), name="parties_detail"),
 ]
