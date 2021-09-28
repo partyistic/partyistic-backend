@@ -11,7 +11,7 @@ class CustomAccountManager(BaseUserManager):
         other_fields.setdefault('is_staff', True)
         other_fields.setdefault('is_superuser', True)
         other_fields.setdefault('is_active', True)
-
+        favorite_list.setdefault('favorite_list', null)
         if other_fields.get('is_staff') is not True:
             raise ValueError(
                 'Superuser must be assigned to is_staff=True.')
