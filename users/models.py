@@ -6,7 +6,7 @@ from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
 
 class CustomAccountManager(BaseUserManager):
-    def create_superuser(self, email, user_name, full_name, password, **other_fields):
+    def create_superuser(self, email, user_name, full_name, password,favorite_list, **other_fields):
 
         other_fields.setdefault('is_staff', True)
         other_fields.setdefault('is_superuser', True)
@@ -19,9 +19,9 @@ class CustomAccountManager(BaseUserManager):
             raise ValueError(
                 'Superuser must be assigned to is_superuser=True.')
 
-        return self.create_user(email, user_name, full_name, password, **other_fields)
+        return self.create_user(email, user_name, full_name, password,favorite_list, **other_fields)
 
-    def create_user(self, email, user_name, full_name, password, **other_fields):
+    def create_user(self, email, user_name, full_name, password,favorite_list, **other_fields):
 
         if not email:
             raise ValueError(_('You must provide an email address'))
@@ -38,6 +38,7 @@ class NewUser(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(_('email address'), null=True, blank=True,unique=True)
     user_name = models.CharField(max_length=150, unique=True)
     full_name = models.CharField(max_length=150, blank=True)
+    favorite_list = models.JSONField(blank=True, null=True)
     start_date = models.DateTimeField(default=timezone.now)
     about = models.TextField(_(
         'about'), max_length=500, blank=True)
