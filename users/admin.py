@@ -8,13 +8,13 @@ from django.db import models
 
 class UserAdminConfig(UserAdmin):
     model = NewUser
-    search_fields = ('email', 'user_name', 'full_name','favorite_list',)
-    list_filter = ('email', 'user_name', 'full_name','favorite_list', 'is_active', 'is_staff')
+    search_fields = ('email', 'user_name', 'full_name',)
+    list_filter = ('email', 'user_name', 'full_name', 'is_active', 'is_staff')
     ordering = ('-start_date',)
-    list_display = ('email', 'id','user_name', 'full_name','favorite_list',
+    list_display = ('email', 'id','user_name', 'full_name',
                     'is_active', 'is_staff')
     fieldsets = (
-        (None, {'fields': ('email', 'user_name', 'full_name','favorite_list',)}),
+        (None, {'fields': ('email', 'user_name', 'full_name',)}),
         ('Permissions', {'fields': ('is_staff', 'is_active')}),
         ('Personal', {'fields': ('about',)}),
     )
@@ -24,7 +24,7 @@ class UserAdminConfig(UserAdmin):
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
-            'fields': ('email', 'user_name', 'full_name','favorite_list', 'password1', 'password2', 'is_active', 'is_staff')}
+            'fields': ('email', 'user_name', 'full_name', 'password1', 'password2', 'is_active', 'is_staff')}
          ),
     )
 

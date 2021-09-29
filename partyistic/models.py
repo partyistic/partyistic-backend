@@ -39,6 +39,7 @@ class Places(models.Model):
     reviews = models.JSONField(blank=True, null=True)
     place_type = models.CharField(max_length=64, choices = [('Hall','Hall'),('Restaurant','Restaurant'),('Farm','Farm')], default='Hall')  
     booked_dates = models.JSONField(blank=True, null=True)
+    emailname = models.CharField(max_length=256, default='')
 
     def __str__(self):
         return self.name
@@ -50,6 +51,7 @@ class Planners(models.Model):
     images = models.JSONField(blank=True, null=True)
     price = models.IntegerField()
     reviews = models.JSONField(blank=True, null=True)
+    emailname = models.CharField(max_length=256, default='')
 
     def __str__(self):
         return self.name
@@ -62,6 +64,7 @@ class MusicBands(models.Model):
     price = models.IntegerField()
     reviews = models.JSONField(blank=True, null=True)
     booked_dates = models.JSONField(blank=True, null=True)
+    emailname = models.CharField(max_length=256, default='')
 
 class PhotoSession(models.Model):
     owner = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, null=True, blank=True)
@@ -71,6 +74,7 @@ class PhotoSession(models.Model):
     price = models.IntegerField()
     reviews = models.JSONField(blank=True, null=True)
     booked_dates = models.JSONField(blank=True, null=True)
+    emailname = models.CharField(max_length=256, default='')
 
 class Fashion(models.Model):
     owner = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, null=True, blank=True)
@@ -81,6 +85,8 @@ class Fashion(models.Model):
     city = models.CharField(max_length=64, choices = [('Amman','Amman'),('Irbid','Irbid'),('Zarqa','Zarqa'),('Al-Mafraq','Al-Mafraq'),('Jarash','Jarash'),('Ajloun','Ajloun'),('As-Salt','As-Salt'),('Madaba','Madaba'),('karak','karak'),('Tafilah','Tafilah'),("Maan","Maan"),('Aqaba','Aqaba')], default='Amman')
     price = models.IntegerField()
     reviews = models.JSONField(blank=True, null=True)
+    emailname = models.CharField(max_length=256, default='')
+
 class Cars(models.Model):
     owner = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, null=True, blank=True)
     name = models.CharField(max_length=256)
@@ -91,6 +97,7 @@ class Cars(models.Model):
     price = models.IntegerField()
     reviews = models.JSONField(blank=True, null=True)
     booked_dates = models.JSONField(blank=True, null=True)
+    emailname = models.CharField(max_length=256, default='')
 
     def __str__(self):
         return self.name
@@ -102,6 +109,7 @@ class Trip(models.Model):
     images = models.JSONField(blank=True, null=True)
     price = models.IntegerField()
     reviews = models.JSONField(blank=True, null=True)
+    emailname = models.CharField(max_length=256, default='')
 
 class Parties(models.Model):
     owner = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, null=True, blank=True)
@@ -114,3 +122,5 @@ class Parties(models.Model):
     privacy = models.CharField(max_length=64, choices = [('Private','Private'),('Public','Public')], default='Private') 
     date = models.DateField()
     invited_people = models.JSONField(blank=True, null=True)
+    emailname = models.CharField(max_length=256, default='')
+    
